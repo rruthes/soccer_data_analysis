@@ -25,7 +25,7 @@ while True:
         break
 
 #Como o número de dados era muito extenso, foi necessário dividir a coleta em páginas
-params['page'] += 1
+    params['page'] += 1
 
 df2 = pd.DataFrame(all_players)
 
