@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-url = "https://v3.football.api-sports.io/players"
+URL = "https://v3.football.api-sports.io/players"
 headers = {
   'x-rapidapi-key': '8d466e7fd56a96fade2767ae8de95e4b',
   'x-rapidapi-host': 'v3.football.api-sports.io'
@@ -16,7 +16,7 @@ params = {
 all_players = []
 
 while True:
-    response = requests.get(url, headers=headers, params=params)
+    response = requests.get(URL, headers=headers, params=params)
     data = response.json()
 
     all_players.extend(data['response'])
@@ -27,8 +27,5 @@ while True:
 #Como o número de dados era muito extenso, foi necessário dividir a coleta em páginas
     params['page'] += 1
 
-df2 = pd.DataFrame(all_players)
-
-print(df2.head())
-
+df2 = pd.json_normalize(all_players)
 df2.to_csv('players_brasileirao_2024.csv', index=False)
