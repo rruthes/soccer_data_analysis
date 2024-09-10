@@ -36,10 +36,5 @@ while True:
     params['page'] += 1
 
 df = pd.json_normalize(all_players)
-df.to_csv('players_wc_wrong.csv', index=False)
-
-df = pd.read_csv('players_wc_wrong.csv')
-
-df = df.drop(columns=['statistics'])
-
+df.drop(columns=['statistics'], inplace=True)
 df.to_csv('players_wc.csv', index=False)
