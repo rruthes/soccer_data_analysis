@@ -1,17 +1,25 @@
 import requests
 import pandas as pd
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 URL = "https://v3.football.api-sports.io/players"
+
+api_key = os.getenv('API_KEY')
+
 headers = {
-  'x-rapidapi-key': '8d466e7fd56a96fade2767ae8de95e4b',
+  'x-rapidapi-key': api_key,
   'x-rapidapi-host': 'v3.football.api-sports.io'
 }
 
 params = {
-    'league': '71',
+    'league': '1',
     'season': '2022',
     'page': 1  
 }
+
 
 all_players = []
 
@@ -27,5 +35,11 @@ while True:
 #Como o número de dados era muito extenso, foi necessário dividir a coleta em páginas
     params['page'] += 1
 
-df2 = pd.json_normalize(all_players)
-df2.to_csv('players_brasileirao_2022.csv', index=False)
+df = pd.json_normalize(all_players)
+df.to_csv('players_wc_wrong.csv', index=False)
+
+df = pd.read_csv('players_wc_wrong.csv')
+
+df = df.drop(columns=['statistics'])
+
+df.to_csv('players_wc.csv', index=False)
