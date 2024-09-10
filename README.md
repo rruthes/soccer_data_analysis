@@ -11,4 +11,6 @@ Para a extração dos dados das seleções e dos jogadores, foi usada o <b>API F
 <p>Para executar o código e ver a geração das tabelas, é necessário rodar os seguintes comandos no terminal:</p>
 <img src="carbon.png" alt="banner" width="400"/>
 
-<h2>Gráfico gerado</h2>
+<h2>Dashboard</h2>
+<img src="dashboard_wc_page-0001.jpg" alt="banner" width="800"/>
+<p>Feito com os dados obtidos pela API, esse dashboard apresenta algumas conclusões acerca dos jogadores e das seleções que disputaram a Copa do Mundo de 2022. Como a versão gratuita da API só permite a extração de um número limitado de dados, os resultados não estão totalmente alinhados com a realidade, sendo apenas uma aproximação.</p>
